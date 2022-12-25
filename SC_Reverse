@@ -1,0 +1,9 @@
+int Reverse(int n, int result) {
+    // initialize the first b value with 0
+	if (n == 0)
+		return result;
+	else {
+		result = result * 10 + n % 10;
+		return Reverse(n / 10, result);
+	}
+}

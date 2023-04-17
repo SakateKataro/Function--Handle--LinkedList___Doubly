@@ -1,0 +1,13 @@
+int handle__linkedlist_doubly___remove_head_(__linked_list& list) {
+	if (list.head != nullptr) {
+		__llnode* node = list.head;
+
+		// x = node->data;  // Data - Reuse
+
+		list.head = node->next;
+		delete node;
+		if (list.head == nullptr)  list.tail = nullptr;
+		return 1;
+
+	} return 0;
+}

@@ -1,0 +1,11 @@
+int handle__linkedlist_doubly___length_(__linked_list& list) {
+    int count = 0;
+    __llnode* node = list.head;
+
+    while (node != nullptr) {
+        count++;
+        node = node->next;
+    }
+
+    return count;
+}

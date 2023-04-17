@@ -1,0 +1,10 @@
+void handle__linkedlist_doubly___add_tail_(__linked_list& list, __llnode* node) {
+    if (list.head == nullptr) {
+        list.head = node;  list.tail = node;
+    }
+    else {
+        list.tail->next = node; 
+        node->back = list.tail;
+        list.tail = node;
+    }
+}

@@ -1,0 +1,32 @@
+__llnode* handle__linkedlist_doubly___insert_search_idx_(__linked_list& list) {
+	//#include <cstdio>
+
+	std::string str = "";
+	__llnode* idx;
+
+	while (true) {
+
+		std::cerr << "If you want to add it to the top of the list, type 'head'.\n";
+		std::cerr << "If you want to add it to the bottom of the list, enter 'tail'.\n";
+		std::cerr << "Note that if the specified location is not found, it will be added to the end of the list by default.\n";
+		std::cout << "Enter the value that you want to add to the list : ";    getline(std::cin, str);
+
+		if (str[0] + str[1] + str[2] + str[3] == 'h' + 'e' + 'a' + 'd') { return nullptr;  break; }
+		else if (str[0] + str[1] + str[2] + str[3] == 't' + 'a' + 'i' + 'l') { return list.tail; break; }
+
+		idx = init__node(std::stoi(str));  // Change
+
+		if (idx != nullptr)  break;
+	}
+
+	if (list.head != nullptr) {
+		__llnode* node = list.head;
+		while (node != nullptr) {
+			if (node->data == idx->data) {
+				return node;  break;
+			}
+			node = node->next;
+		}
+	}
+	return list.tail;
+}

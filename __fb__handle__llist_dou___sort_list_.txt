@@ -1,0 +1,21 @@
+bool increase(int a, int b) { return a > b; }
+bool decrease(int a, int b) { return a < b; }
+void handle__linkedlist_doubly___sort_(__linked_list& list, bool(*compare)(int, int)) {
+	if (list.head != nullptr) {
+		__llnode* node = list.head;    __llnode* dyna;
+
+		while (node != nullptr) {
+			dyna = node->next;
+
+			while (dyna != nullptr) {
+				if (compare(node->data,dyna->data)) {
+
+					// Change - Data___Int
+					int temp = node->data;    node->data = dyna->data;    dyna->data = temp;
+				}
+				dyna = dyna->next;
+			}
+			node = node->next;
+		}
+	}
+}

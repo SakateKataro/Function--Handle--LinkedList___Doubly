@@ -1,0 +1,25 @@
+void handle__linkedlist_doubly___add_head_(__linked_list& list, __llnode* node) {
+    if (list.head == nullptr) {
+        list.head = node;  list.tail = node;
+    }
+    else {
+        node->next = list.head;  node->back = nullptr;
+        list.head = node;
+    }
+}
+void handle__linkedlist_doubly___insert_any_(__linked_list& list, __llnode* add, __llnode* idx_be) {
+    if (idx_be != nullptr) {
+        if (list.tail == idx_be) {
+            list.tail->next = add;    list.tail = add;    list.tail->next = nullptr;
+        }
+        else {
+            __llnode* idx_af = idx_be->next;
+            if (idx_af != nullptr) {
+                add->next = idx_af;    add->back = idx_be;
+                idx_be->next = add;    idx_af->back = add;
+            }
+        }
+    }
+    else
+        handle__linkedlist_doubly___add_head_(list, add);
+}

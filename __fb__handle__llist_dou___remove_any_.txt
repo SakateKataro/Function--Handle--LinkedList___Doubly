@@ -1,0 +1,15 @@
+short handle__linkedlist_doubly___remove_any_(__linked_list& list, __llnode* index) {
+    if (index != nullptr) {
+        if (index == list.head)  { list.head = list.head->next;  delete index; }
+        else if (index == list.tail) {
+            list.tail = list.tail->back;    list.tail->next = nullptr;
+            delete index;
+        }
+        else {
+            index->back->next = index->next;    index->next->back = index->back;
+            delete index;
+        }
+        return 1;
+    }
+    else    return 0;
+}
